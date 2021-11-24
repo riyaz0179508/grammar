@@ -1,5 +1,6 @@
 import 'package:easy_english/spoken_english/dailay_uses_sentense.dart';
 import 'package:easy_english/spoken_english/make_sentense.dart';
+import 'package:easy_english/spoken_english/proverbs_english.dart';
 import 'package:flutter/material.dart';
 
 class SentenseFor extends StatefulWidget {
@@ -48,11 +49,12 @@ class _SentenseForState extends State<SentenseFor> {
           ListTile(
             onTap: (){
 
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Proverbs()));
             },
             selectedTileColor: Color(0xff00ffff),
             hoverColor: Colors.yellow,
             focusColor: Colors.yellow,
-            title: Text("Proverb"),
+            title: Text("Proverbs"),
             leading: Icon(Icons.wb_incandescent_rounded),
           ),
 

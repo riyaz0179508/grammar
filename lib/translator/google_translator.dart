@@ -36,6 +36,7 @@ class _EasyTranslatorState extends State<EasyTranslator> {
 
       body: Column(
         children: [
+          SizedBox(height: 40,),
           Padding(
             padding:  EdgeInsets.only(left:screenWidth*0.03, right: screenWidth*0.03 ),
             child: Container(

@@ -1198,7 +1198,7 @@ class _DailyState extends State<Daily> {
                     child:
                     Padding(
                       padding:  EdgeInsets.only(left: screenWidth*0.02, top: screenWidth*0.04, bottom: screenWidth*0.04),
-                      child: Text("70. নWhat's mean - মানে কি।",
+                      child: Text("70. What's mean - মানে কি।",
                         style: TextStyle(fontSize: screenWidth*0.04),),
                     ),
                   ),
@@ -1528,7 +1528,7 @@ class _DailyState extends State<Daily> {
                     child:
                     Padding(
                       padding:  EdgeInsets.only(left: screenWidth*0.02, top: screenWidth*0.04, bottom: screenWidth*0.04),
-                      child: Text("90. নThat’s all right.- ঠিক আছে।",
+                      child: Text("90. That’s all right.- ঠিক আছে।",
                         style: TextStyle(fontSize: screenWidth*0.04),),
                     ),
                   ),

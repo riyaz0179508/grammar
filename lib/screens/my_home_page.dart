@@ -58,7 +58,8 @@ class _HomePageState extends State<HomePage> {
                     padding:  EdgeInsets.only(top: screenHeight*0.03, bottom: screenHeight*0.03),
                     child: Text("Easy English BD",
                       style: TextStyle(color: Colors.white,
-                          fontSize: screenWidth*0.05,
+                          fontSize: screenWidth*0.06,
+                        fontWeight: FontWeight.bold
                           ),
                       textAlign: TextAlign.center,
                     ),
