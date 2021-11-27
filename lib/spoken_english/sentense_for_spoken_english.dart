@@ -1,3 +1,4 @@
+import 'package:easy_english/spoken_english/conversation.dart';
 import 'package:easy_english/spoken_english/dailay_uses_sentense.dart';
 import 'package:easy_english/spoken_english/make_sentense.dart';
 import 'package:easy_english/spoken_english/proverbs_english.dart';
@@ -23,6 +24,9 @@ class _SentenseForState extends State<SentenseFor> {
       ),
       body: ListView(
         children: [
+          SizedBox(
+            height: screenHeight*0.04,
+          ),
 
           ListTile(
             onTap: (){
@@ -61,6 +65,7 @@ class _SentenseForState extends State<SentenseFor> {
           ListTile(
             onTap: (){
 
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>Conversation()));
             },
             selectedTileColor: Color(0xff00ffff),
             hoverColor: Colors.yellow,

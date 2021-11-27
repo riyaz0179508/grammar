@@ -23,6 +23,9 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
       body:
           ListView(
             children: [
+              SizedBox(
+                height: screenHeight*0.05,
+              ),
 
               ListTile(
                 onTap: (){
@@ -34,6 +37,7 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
                 title: Text("Article"),
                 leading: Icon(Icons.wb_incandescent_rounded),
               ),
+
 
               ListTile(
                 onTap: (){
@@ -78,6 +82,7 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
                 title: Text("Narration"),
                 leading: Icon(Icons.wb_incandescent_rounded),
               ),
+
               ListTile(
                 onTap: (){
 
@@ -88,6 +93,7 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
                 title: Text("Degree"),
                 leading: Icon(Icons.wb_incandescent_rounded),
               ),
+
               ListTile(
                 onTap: (){
 
@@ -98,6 +104,7 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
                 title: Text("Sufix-Prefix"),
                 leading: Icon(Icons.wb_incandescent_rounded),
               ),
+
               ListTile(
                 onTap: (){
 
