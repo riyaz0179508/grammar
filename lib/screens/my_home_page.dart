@@ -1,5 +1,5 @@
 
-import 'package:easy_english/english_for_kids/abcd.dart';
+
 import 'package:easy_english/english_for_kids/kids.dart';
 import 'package:easy_english/grammar/english_grammar.dart';
 import 'package:easy_english/more_practice/practice_page.dart';
@@ -327,7 +327,7 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
 
-         backgroundColor: Color(0xffbdbdbd),
+         backgroundColor: Color(0xff0a7e8c),
 
 
 

@@ -18,6 +18,7 @@ class _SentenseForState extends State<SentenseFor> {
     final double screenWidth=MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        toolbarHeight: screenHeight*0.08,
         backgroundColor: Color(0xff0a7e8c),
         centerTitle: true,
         title: Text("Spoken English", style: TextStyle(fontSize: screenWidth*0.05, color: Colors.white),),
