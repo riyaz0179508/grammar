@@ -16,6 +16,7 @@ class _DailyState extends State<Daily> {
     return
       Scaffold(
       appBar: AppBar(
+        toolbarHeight: screenHeight*0.08,
         backgroundColor: Color(0xff0a7e8c),
         centerTitle: true,
         title: Text("Daily Uses Sentense", style: TextStyle(fontSize: screenWidth*0.05, color: Colors.white),),
