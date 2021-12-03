@@ -58,11 +58,11 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                   child:
                   Padding(
-                    padding:  EdgeInsets.only(top: screenHeight*0.04, bottom: screenHeight*0.15),
+                    padding:  EdgeInsets.only(top: screenHeight*0.03, bottom: screenHeight*0.15),
                     child:
                     Center(
                       child: Text("Easy English BD",
-                      style: TextStyle(fontSize: screenWidth*0.05, color: Colors.white,
+                      style: TextStyle(fontSize: screenWidth*0.07, color: Colors.white,
                       fontWeight: FontWeight.bold),
                       ),
                     ),
@@ -82,7 +82,7 @@ class _HomePageState extends State<HomePage> {
                 child: Container(
                   decoration: BoxDecoration(
                     image: DecorationImage(
-                        image: AssetImage("assets/images/f.gif")),
+                        image: AssetImage("assets/images/16.jpg"), fit: BoxFit.fitWidth),
                     boxShadow: [
                       BoxShadow(
                         color: Colors.grey.withOpacity(0.3),
@@ -104,7 +104,7 @@ class _HomePageState extends State<HomePage> {
                   child: Column(
                     children: [
                       Padding(
-                        padding:  EdgeInsets.only(top: screenHeight*0.28),
+                        padding:  EdgeInsets.only(top: screenHeight*0.36),
                         child: ElevatedButton(
                           style: ElevatedButton.styleFrom(
                             shape: RoundedRectangleBorder(
@@ -138,7 +138,7 @@ class _HomePageState extends State<HomePage> {
                       Row(
                         children: [
                           Padding(
-                            padding:  EdgeInsets.only(top: screenHeight*0.10, bottom: screenHeight*0.02,
+                            padding:  EdgeInsets.only(top: screenHeight*0.03, bottom: screenHeight*0.02,
                             left: screenWidth*0.03, right: screenWidth*0.03,
                             ),
                             child:
@@ -152,7 +152,7 @@ class _HomePageState extends State<HomePage> {
                                     color: Color(0xff0a7e8c),
                                   ),
 
-                                primary: Color(0xfff2f3f4),
+                                primary: Colors.white,
                               ),
                                 onPressed: (){
 
@@ -168,7 +168,7 @@ class _HomePageState extends State<HomePage> {
                           ),
                           Expanded(child: Row()),
                           Padding(
-                            padding:  EdgeInsets.only(top: screenHeight*0.10, bottom: screenHeight*0.02,
+                            padding:  EdgeInsets.only(top: screenHeight*0.03, bottom: screenHeight*0.02,
                             right: screenWidth*0.03,
                             ),
                             child:
@@ -178,7 +178,7 @@ class _HomePageState extends State<HomePage> {
                                     width: 1, style: BorderStyle.solid,
                                     color: Color(0xff0a7e8c),
                                   ),
-                                primary: Color(0xfff2f3f4),
+                                primary: Colors.white,
                               ),
                                 onPressed: (){
                                 Navigator.push(context, MaterialPageRoute(builder: (context)=>EnglishGrammar()));
@@ -209,7 +209,7 @@ class _HomePageState extends State<HomePage> {
                             ElevatedButton(
 
                               style: ElevatedButton.styleFrom(
-                                primary: Color(0xfff2f3f4),
+                                primary: Colors.white,
                                   side: BorderSide(
                                     width: 1, style: BorderStyle.solid,
                                     color: Color(0xff0a7e8c),
@@ -236,7 +236,7 @@ class _HomePageState extends State<HomePage> {
                             child:
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                primary: Color(0xfff2f3f4),
+                                primary: Colors.white,
                                   side: BorderSide(
                                     width: 1, style: BorderStyle.solid,
                                     color: Color(0xff0a7e8c),
@@ -269,7 +269,7 @@ class _HomePageState extends State<HomePage> {
                             ElevatedButton(
 
                               style: ElevatedButton.styleFrom(
-                                  primary: Color(0xfff2f3f4),
+                                  primary: Colors.white,
                                   side: BorderSide(
                                     width: 1, style: BorderStyle.solid,
                                     color: Color(0xff0a7e8c),
@@ -295,7 +295,7 @@ class _HomePageState extends State<HomePage> {
                             child:
                             ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  primary: Color(0xfff2f3f4),
+                                  primary: Colors.white,
                                   side: BorderSide(
                                     width: 1, style: BorderStyle.solid,
                                     color: Color(0xff0a7e8c),

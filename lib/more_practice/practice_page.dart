@@ -28,7 +28,11 @@ class _PracticePageState extends State<PracticePage> {
 
       body: ListView(
         children: [
-          SizedBox(height: screenHeight*0.10,),
+
+
+
+          Divider(),
+
           ListTile(
             onTap: _launchURL,
             selectedTileColor: Color(0xff00ffff),
@@ -38,6 +42,7 @@ class _PracticePageState extends State<PracticePage> {
             leading: Icon(Icons.group_add),
           ),
 
+          Divider(),
           ListTile(
             onTap: (){
 
@@ -48,6 +53,7 @@ class _PracticePageState extends State<PracticePage> {
             title: Text("facebook Page"),
             leading: Icon(Icons.paste),
           ),
+          Divider(),
 
           ListTile(
             onTap: (){
@@ -59,6 +65,34 @@ class _PracticePageState extends State<PracticePage> {
             title: Text("Youtube"),
             leading: Icon(Icons.video_call),
           ),
+
+
+          Divider(),
+          ListTile(
+            onTap: (){
+
+            },
+            selectedTileColor: Color(0xff00ffff),
+            hoverColor: Colors.yellow,
+            focusColor: Colors.yellow,
+            title: Text("Feedback"),
+            leading: Icon(Icons.feedback_rounded),
+          ),
+
+
+          Divider(),
+
+          ListTile(
+            onTap: (){
+
+            },
+            selectedTileColor: Color(0xff00ffff),
+            hoverColor: Colors.yellow,
+            focusColor: Colors.yellow,
+            title: Text("About us"),
+            leading: Icon(Icons.account_box_outlined),
+          ),
+          Divider(),
         ],
       ),
     );

@@ -3,6 +3,9 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:translator/translator.dart';
 
+
+
+
 final translator = GoogleTranslator();
 String? _dropDownvalue;
 String? translated_text;
@@ -22,7 +25,7 @@ class _EasyTranslatorState extends State<EasyTranslator> {
     // TODO: implement initState
     super.initState();
   }
-
+ bool isLoading=true;
   @override
   Widget build(BuildContext context) {
     final double screenHeight=MediaQuery.of(context).size.height;
@@ -49,6 +52,7 @@ class _EasyTranslatorState extends State<EasyTranslator> {
                     height: screenHeight*0.10,
                     child:
                     TextField(
+
                       controller: myController,
                       focusNode: FocusNode(canRequestFocus: false),
                       decoration: InputDecoration(
@@ -67,7 +71,9 @@ class _EasyTranslatorState extends State<EasyTranslator> {
             child: Container(
               margin: EdgeInsets.only(top: screenHeight*0.01),
               child: DropdownButton<String>(
+
                 isExpanded: true,
+
                 hint: _dropDownvalue==null?Text("Select language"):
                 Text(_dropDownvalue!, style: TextStyle(color: Colors.blue),),
                 items: <String>["Bengali","English", "Spanish", "Chinese", "Germen", "Afrikaan", "Arabic",
@@ -128,7 +134,18 @@ class _EasyTranslatorState extends State<EasyTranslator> {
 
           SizedBox(height: screenHeight*0.03,),
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(60)
+              )
+            ),
               onPressed: (){
+
+              if(isLoading) return;
+              setState(() {
+                isLoading=true;
+              });
+
                 if(_dropDownvalue=="Bengali"){
                   translate_text("bn");
                 }else if(
@@ -143,7 +160,7 @@ class _EasyTranslatorState extends State<EasyTranslator> {
                 }
 
                 else if(
-                _dropDownvalue=="Chineese"){
+                _dropDownvalue=="Chinese"){
                   translate_text("zh-cn");
 
                 }
@@ -334,7 +351,9 @@ class _EasyTranslatorState extends State<EasyTranslator> {
                 }
 
               },
-              child: Text("Translate")),
+              child: isLoading
+              ? CircularProgressIndicator(color: Colors.white,)
+              :Text("Translate")),
 
           Padding(
             padding:  EdgeInsets.all(screenWidth*0.02),

@@ -1,4 +1,5 @@
 
+import 'package:easy_english/model/vucabulary_model.dart';
 import 'package:easy_english/vucabulary/a_to_z_vucabulary.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -40,110 +41,119 @@ List<String> abcdVucabulary=[
 ];
 
 
+VucabularyModel vcbModelA=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelB=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelC=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelD=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelE=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelF=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelG=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelH=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelI=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelJ=VucabularyModel(
+    "Hello\n" "jhon"
+);
 
 
 
+VucabularyModel vcbModelK=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelL=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelM=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelN=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelO=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelP=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelQ=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelR=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelS=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelT=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelU=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelV=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelW=VucabularyModel(
+    "Hello\n" "jhon"
+);
+
+VucabularyModel vcbModelX=VucabularyModel(
+    "Hello\n" "jhon"
+);
 
 
-List<String> dataA=[
- "hello",
-     "jh",
-];
+VucabularyModel vcbModelY=VucabularyModel(
+    "Hello\n" "jhon"
+);
 
-List<String> dataB=[
-  "hello"
-];
+VucabularyModel vcbModelZ=VucabularyModel(
+    "Hello\n" "jhon"
+);
 
-List<String> dataC=[
-  "hello"
-];
 
-List<String> dataD=[
-  "hello"
-];
 
-List<String> dataE=[
-  "hello"
-];
-
-List<String> dataF=[
-  "hello"
-];
-
-List<String> dataG=[
-  "hello"
-];
-
-List<String> dataH=[
-  "hello"
-];
-
-List<String> dataI=[
-  "hello"
-];
-
-List<String> dataJ=[
-  "hello"
-];
-
-List<String> dataK=[
-  "hello"
-];
-
-List<String> dataL=[
-  "hello"
-];
-
-List<String> dataM=[
-  "hello"
-];
-
-List<String> dataN=[
-  "hello"
-];
-
-List<String> dataO=[
-  "hello"
-];
-
-List<String> dataP=[
-  "hello"
-];
-
-List<String> dataQ=[
-  "hello"
-];
-
-List<String> dataS=[
-  "hello"
-];
-
-List<String> dataT=[
-  "hello"
-];
-
-List<String> dataU=[
-  "hello"
-];
-
-List<String> dataV=[
-  "hello"
-];
-
-List<String> dataW=[
-  "hello"
-];
-
-List<String> dataX=[
-  "hello"
-];
-
-List<String> dataY=[
-  "hello"
-];
-
-List<String> dataZ=[
-  "hello"
+List<VucabularyModel> vcbModelList=[
+  vcbModelA, vcbModelB, vcbModelC, vcbModelD, vcbModelE, vcbModelF, vcbModelF, vcbModelG, vcbModelH,vcbModelI,
+  vcbModelJ, vcbModelK, vcbModelK, vcbModelL, vcbModelM, vcbModelN, vcbModelO, vcbModelP, vcbModelQ, vcbModelR,
+  vcbModelS, vcbModelT, vcbModelU, vcbModelV, vcbModelW, vcbModelX, vcbModelY, vcbModelZ
 ];
 
 
@@ -190,7 +200,7 @@ class _VucabularyState extends State<Vucabulary> {
                         InkWell(
                           onTap: (){
                             Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                                AToZVucabulary(strText: dataA[index])));
+                                AToZVucabulary(vcbobj: vcbModelList [index])));
                           },
                           child: Container(
                             width: screenWidth,

@@ -24,10 +24,8 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
       body:
           ListView(
             children: [
-              SizedBox(
-                height: screenHeight*0.05,
-              ),
 
+              Divider(),
               ListTile(
                 onTap: (){
 
@@ -39,7 +37,7 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
                 leading: Icon(Icons.wb_incandescent_rounded),
               ),
 
-
+              Divider(),
               ListTile(
                 onTap: (){
                   Navigator.push(context, MaterialPageRoute(builder: (context)=>Tense()));
@@ -50,7 +48,7 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
                 title: Text("Tense"),
                 leading: Icon(Icons.wb_incandescent_rounded),
               ),
-
+              Divider(),
               ListTile(
                 onTap: (){
 
@@ -61,7 +59,7 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
                 title: Text("Preposition"),
                 leading: Icon(Icons.wb_incandescent_rounded),
               ),
-
+              Divider(),
               ListTile(
                 onTap: (){
 
@@ -72,7 +70,7 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
                 title: Text("Sentenses"),
                 leading: Icon(Icons.wb_incandescent_rounded),
               ),
-
+              Divider(),
               ListTile(
                 onTap: (){
 
@@ -83,7 +81,7 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
                 title: Text("Narration"),
                 leading: Icon(Icons.wb_incandescent_rounded),
               ),
-
+              Divider(),
               ListTile(
                 onTap: (){
 
@@ -94,7 +92,7 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
                 title: Text("Degree"),
                 leading: Icon(Icons.wb_incandescent_rounded),
               ),
-
+              Divider(),
               ListTile(
                 onTap: (){
 
@@ -105,7 +103,7 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
                 title: Text("Sufix-Prefix"),
                 leading: Icon(Icons.wb_incandescent_rounded),
               ),
-
+              Divider(),
               ListTile(
                 onTap: (){
 
@@ -116,6 +114,7 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
                 title: Text("Tag question"),
                 leading: Icon(Icons.wb_incandescent_rounded),
               ),
+              Divider(),
             ],
           ),
     );

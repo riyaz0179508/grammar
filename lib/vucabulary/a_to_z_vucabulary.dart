@@ -1,11 +1,13 @@
 
+import 'package:easy_english/model/vucabulary_model.dart';
 import 'package:flutter/material.dart';
 
 class AToZVucabulary extends StatefulWidget {
 
-  String strText;
+  VucabularyModel vcbobj;
 
-   AToZVucabulary({Key? key,required this.strText }) : super(key: key);
+
+   AToZVucabulary({Key? key,required this.vcbobj }) : super(key: key);
 
   @override
   _AToZVucabularyState createState() => _AToZVucabularyState();
@@ -30,7 +32,14 @@ class _AToZVucabularyState extends State<AToZVucabulary> {
         child: Column(
           children: [
 
-            Text(widget.strText)
+            Container(
+              decoration: BoxDecoration(
+                border: Border.all(width: 0.1, color: Colors.lightBlue),
+                color: Color(0xffd6ebff)
+              ),
+                height: screenHeight*0.10,
+                width: screenWidth,
+                child: Text(widget.vcbobj.text))
           ],
         ),
       ),
