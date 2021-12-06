@@ -1,5 +1,6 @@
 
 import 'package:easy_english/model/vucabulary_model.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class AToZVucabulary extends StatefulWidget {
@@ -27,35 +28,32 @@ class _AToZVucabularyState extends State<AToZVucabulary> {
         title: Text("Vucabulary - সমূহ", style: TextStyle(fontSize: screenWidth*0.05, color: Colors.white),),
       ),
       body:
-      Padding(
-        padding:  EdgeInsets.all(screenWidth*0.05),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Expanded(
-              child: ListView.builder(
-                itemCount: widget.vcbobj.textList.length,
-                  itemBuilder: (context,index){
-                    return Padding(
-                      padding:  EdgeInsets.all(screenHeight*0.01),
-                      child: Container(
-                          decoration: BoxDecoration(
-                              border: Border.all(width: 0.1, color: Colors.lightBlue),
-                              color:(index % 2== 0) ?Color(0xffd6ebff)
-                                  :Colors.white
-                          ),
-                          width: screenWidth,
-                          child: Padding(
-                            padding:  EdgeInsets.only(left: screenWidth*0.02, top: screenWidth*0.04, bottom: screenWidth*0.04),
-                            child: Text(widget.vcbobj.textList[index]),
-                          )),
-                    );
-                  }
-              ),
-            )
-          ],
-        ),
+      Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          SizedBox(height: screenHeight*0.03,),
+          Expanded(
+            child: ListView.builder(
+              itemCount: widget.vcbobj.textList.length,
+                itemBuilder: (context,index){
+                  return Container(
+                      decoration: BoxDecoration(
+                          border: Border.all(width: 0.1, color: Colors.lightBlue),
+                          color:(index % 2== 0) ?Color(0xffd6ebff)
+                              :Colors.white
+                      ),
+                      width: screenWidth,
+                      child: Padding(
+                        padding:  EdgeInsets.only(left: screenWidth*0.04, top: screenWidth*0.06, bottom: screenWidth*0.06),
+                        child: Text(widget.vcbobj.textList[index], style: TextStyle(fontSize: screenWidth*0.04,
+                        fontWeight: FontWeight.bold,color: Color(0xff003153)),),
+                      ));
+                }
+            ),
+          ),
+          SizedBox(height: screenHeight*0.02,),
+        ],
       ),
     );
   }

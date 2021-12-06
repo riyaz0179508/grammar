@@ -3939,7 +3939,7 @@ class _VucabularyState extends State<Vucabulary> {
                                 padding:  EdgeInsets.only(top: screenHeight*0.03, left: screenHeight*0.03),
                                 child: Text(abcdVucabulary[index], style: TextStyle(
                                   fontSize: screenWidth*0.05,
-                                  color: Color(0xff36454f),
+                                  color: Color(0xff003153),
                                   fontWeight: FontWeight.bold
                                 ),
                                 textAlign: TextAlign.center,

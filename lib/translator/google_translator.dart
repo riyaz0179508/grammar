@@ -72,15 +72,21 @@ class _EasyTranslatorState extends State<EasyTranslator> {
             Padding(
               padding:  EdgeInsets.only(left:screenWidth*0.03, ),
               child: Container(
-                margin: EdgeInsets.only(top: screenHeight*0.01),
+                margin: EdgeInsets.only(top: screenHeight*0.02),
                 child: DropdownButton<String>(
 
                   isExpanded: true,
 
                   hint: _dropDownvalue==null?Text("Select language"):
                   Text(_dropDownvalue!, style: TextStyle(color: Colors.blue),),
-                  items: <String>["Bengali","English", "Spanish", "Chinese", "Germen", "Afrikaan", "Arabic",
-
+                  items: <String>[
+                    "Bengali",
+                    "English",
+                    "Spanish",
+                    "Chinese",
+                    "Germen",
+                    "Afrikaan",
+                    "Arabic",
                     "Bhutan",
                     "Bihar",
                     "Bulgarian",

@@ -26,7 +26,7 @@ class _SentenseForState extends State<SentenseFor> {
       body: ListView(
         children: [
           SizedBox(
-            height: screenHeight*0.04,
+            height: screenHeight*0.01,
           ),
           Divider(),
           ListTile(
