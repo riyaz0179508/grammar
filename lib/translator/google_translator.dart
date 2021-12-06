@@ -25,7 +25,7 @@ class _EasyTranslatorState extends State<EasyTranslator> {
     // TODO: implement initState
     super.initState();
   }
- bool isLoading=true;
+ bool isLoading=false;
   @override
   Widget build(BuildContext context) {
     final double screenHeight=MediaQuery.of(context).size.height;
@@ -38,337 +38,361 @@ class _EasyTranslatorState extends State<EasyTranslator> {
         title: Text("Easy Translator", style: TextStyle(fontSize: screenWidth*0.05, color: Colors.white),),
       ),
 
-      body: Column(
-        children: [
-          SizedBox(height: 40,),
-          Padding(
-            padding:  EdgeInsets.only(left:screenWidth*0.03, right: screenWidth*0.03 ),
-            child: Container(
-              child: Column(
-                children: [
-                  SizedBox(height: 30,),
-                  Container(
-                    width: double.infinity,
-                    height: screenHeight*0.10,
-                    child:
-                    TextField(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          children: [
+            SizedBox(height: 40,),
+            Padding(
+              padding:  EdgeInsets.only(left:screenWidth*0.03, right: screenWidth*0.03 ),
+              child: Container(
+                child: Column(
+                  children: [
+                    SizedBox(height: 30,),
+                    Container(
+                      width: double.infinity,
+                      // height: screenHeight*0.10,
+                      child:
+                      TextField(
+                        keyboardType: TextInputType.multiline,
+                        maxLines: null,
+                        controller: myController,
+                        focusNode: FocusNode(canRequestFocus: false),
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          labelText: "Eneter Text",
+                        ),
 
-                      controller: myController,
-                      focusNode: FocusNode(canRequestFocus: false),
-                      decoration: InputDecoration(
-                        border: OutlineInputBorder(),
-                        labelText: "Eneter Text",
                       ),
-
-                    ),
-                  )
-                ],
+                    )
+                  ],
+                ),
               ),
             ),
-          ),
-          Padding(
-            padding:  EdgeInsets.only(left:screenWidth*0.03, ),
-            child: Container(
-              margin: EdgeInsets.only(top: screenHeight*0.01),
-              child: DropdownButton<String>(
+            Padding(
+              padding:  EdgeInsets.only(left:screenWidth*0.03, ),
+              child: Container(
+                margin: EdgeInsets.only(top: screenHeight*0.01),
+                child: DropdownButton<String>(
 
-                isExpanded: true,
+                  isExpanded: true,
 
-                hint: _dropDownvalue==null?Text("Select language"):
-                Text(_dropDownvalue!, style: TextStyle(color: Colors.blue),),
-                items: <String>["Bengali","English", "Spanish", "Chinese", "Germen", "Afrikaan", "Arabic",
+                  hint: _dropDownvalue==null?Text("Select language"):
+                  Text(_dropDownvalue!, style: TextStyle(color: Colors.blue),),
+                  items: <String>["Bengali","English", "Spanish", "Chinese", "Germen", "Afrikaan", "Arabic",
 
-                  "Bhutan",
-                  "Bihar",
-                  "Bulgarian",
-                  "Cambodian",
-                  "French",
-                  "Greek",
-                  "Gujarati",
-                  "Hindi",
-                  "Iceland",
-                  "Indonesian",
-                  "Italian",
-                  "kannada",
-                  "Kashmir",
-                  "Korean",
-                  "Kurdish",
-                  "Latin",
-                  "Malay",
-                  "Marathi",
-                  "Nepali",
-                  "Polish",
-                  "Punjabi",
-                  "Romanian",
-                  "Russian",
-                  "Somali",
-                  "Sudanese",
-                  "Swedish",
-                  "Tamil",
-                  "Tegulu",
-                  "Thai",
-                  "Turkish",
-                  "Urdu",
-                  "Uzbek",
-
+                    "Bhutan",
+                    "Bihar",
+                    "Bulgarian",
+                    "Cambodian",
+                    "French",
+                    "Greek",
+                    "Gujarati",
+                    "Hindi",
+                    "Iceland",
+                    "Indonesian",
+                    "Italian",
+                    "kannada",
+                    "Kashmir",
+                    "Korean",
+                    "Kurdish",
+                    "Latin",
+                    "Malay",
+                    "Marathi",
+                    "Nepali",
+                    "Polish",
+                    "Punjabi",
+                    "Romanian",
+                    "Russian",
+                    "Somali",
+                    "Sudanese",
+                    "Swedish",
+                    "Tamil",
+                    "Tegulu",
+                    "Thai",
+                    "Turkish",
+                    "Urdu",
+                    "Uzbek",
 
 
-                ].
-                map((String value) {
-                  return DropdownMenuItem<String>(
-                    value: value,
-                    child: Container(
-                      child: Text(value),
+
+                  ].
+                  map((String value) {
+                    return DropdownMenuItem<String>(
+                      value: value,
+                      child: Container(
+                        child: Text(value),
+                      ),
+                    );
+                  }).toList(),
+                  onChanged: (newValue){
+                    setState(() {
+                      _dropDownvalue=newValue;
+                    });
+
+                  },
+                ),
+              ),
+            ),
+
+            SizedBox(height: screenHeight*0.03,),
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(60)
+                )
+              ),
+                child: isLoading
+                    ? Container(
+                  width: screenWidth*0.35,
+                      height: screenHeight*0.06,
+                      child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          CircularProgressIndicator(
+
+                            color: Colors.white,
+                          ),
+                          SizedBox(width: screenWidth*0.04,),
+                          Text("Please wait"),
+                        ],
+                      ),
+                    )
+                    :Padding(
+                      padding:  EdgeInsets.only(left: screenWidth*0.05, right: screenWidth*0.05),
+                      child: Text("Translate"),
                     ),
-                  );
-                }).toList(),
-                onChanged: (newValue){
-                  setState(() {
-                    _dropDownvalue=newValue;
-                  });
+
+                onPressed: () async {
+                if(isLoading) return;
+
+                setState(() => isLoading = true);
+                await Future.delayed(Duration(seconds: 2));
+                setState(() => isLoading = false);
+
+                  if(_dropDownvalue=="Bengali"){
+                    translate_text("bn");
+                  }else if(
+                  _dropDownvalue=="English"){
+                    translate_text("en");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Spanish"){
+                    translate_text("es");
+
+                  }
+
+                  else if(
+                  _dropDownvalue=="Chinese"){
+                    translate_text("zh-cn");
+
+                  }
+
+                  else if(
+                  _dropDownvalue=="Germen"){
+                    translate_text("de");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Afrikaan"){
+                    translate_text("af");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Arabic"){
+                    translate_text("ar");
+                  }
+
+
+                  else if(
+                  _dropDownvalue=="Bhutan"){
+                    translate_text("dz");
+                  }
+
+
+                  else if(
+                  _dropDownvalue=="Bihar"){
+                    translate_text("bh");
+                  }
+
+
+                  else if(
+                  _dropDownvalue=="Bulgarian"){
+                    translate_text("bg");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Cambodian"){
+                    translate_text("km");
+                  }
+
+                  else if(
+                  _dropDownvalue=="French"){
+                    translate_text("fr");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Greek"){
+                    translate_text("el");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Gujarati"){
+                    translate_text("gu");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Hindi"){
+                    translate_text("hi");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Iceland"){
+                    translate_text("is");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Indonesian"){
+                    translate_text("id");
+                  }
+
+
+                  else if(
+                  _dropDownvalue=="Italian"){
+                    translate_text("it");
+                  }
+
+
+                  else if(
+                  _dropDownvalue=="kannada"){
+                    translate_text("kn");
+                  }
+
+
+                  else if(
+                  _dropDownvalue=="Kashmir"){
+                    translate_text("ks");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Korean"){
+                    translate_text("ks");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Kurdish"){
+                    translate_text("ku");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Latin"){
+                    translate_text("la");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Malay"){
+                    translate_text("ms");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Marathi"){
+                    translate_text("mr");
+                  }
+
+
+                  else if(
+                  _dropDownvalue=="Nepali"){
+                    translate_text("ne");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Polish"){
+                    translate_text("pl");
+                  }
+
+
+                  else if(
+                  _dropDownvalue=="Punjabi"){
+                    translate_text("pa");
+                  }
+
+
+                  else if(
+                  _dropDownvalue=="Romanian"){
+                    translate_text("ro");
+                  }
+
+
+                  else if(
+                  _dropDownvalue=="Russian"){
+                    translate_text("ru");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Somali"){
+                    translate_text("so");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Sudanese"){
+                    translate_text("su");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Swedish"){
+                    translate_text("sv");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Tamil"){
+                    translate_text("ta");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Tegulu"){
+                    translate_text("te");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Thai"){
+                    translate_text("th");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Turkish"){
+                    translate_text("tr");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Urdu"){
+                    translate_text("ur");
+                  }
+
+                  else if(
+                  _dropDownvalue=="Uzbek"){
+                    translate_text("uz");
+                  }
 
                 },
+
+            ),
+
+            Padding(
+              padding:  EdgeInsets.all(screenWidth*0.02),
+              child: Container(
+                margin: EdgeInsets.only(top: screenHeight*0.01),
+                child: translated_text!=null?Text(translated_text!, style:
+                TextStyle(fontSize: screenWidth*0.05,
+                    color: Colors.black54),):Padding(
+                      padding:  EdgeInsets.all(screenWidth*0.02),
+                      child: Text(""),
+                    )
               ),
             ),
-          ),
 
-          SizedBox(height: screenHeight*0.03,),
-          ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(60)
-              )
-            ),
-              onPressed: (){
-
-              if(isLoading) return;
-              setState(() {
-                isLoading=true;
-              });
-
-                if(_dropDownvalue=="Bengali"){
-                  translate_text("bn");
-                }else if(
-                _dropDownvalue=="English"){
-                  translate_text("en");
-                }
-
-                else if(
-                _dropDownvalue=="Spanish"){
-                  translate_text("es");
-
-                }
-
-                else if(
-                _dropDownvalue=="Chinese"){
-                  translate_text("zh-cn");
-
-                }
-
-                else if(
-                _dropDownvalue=="Germen"){
-                  translate_text("de");
-                }
-
-                else if(
-                _dropDownvalue=="Afrikaan"){
-                  translate_text("af");
-                }
-
-                else if(
-                _dropDownvalue=="Arabic"){
-                  translate_text("ar");
-                }
-
-
-                else if(
-                _dropDownvalue=="Bhutan"){
-                  translate_text("dz");
-                }
-
-
-                else if(
-                _dropDownvalue=="Bihar"){
-                  translate_text("bh");
-                }
-
-
-                else if(
-                _dropDownvalue=="Bulgarian"){
-                  translate_text("bg");
-                }
-
-                else if(
-                _dropDownvalue=="Cambodian"){
-                  translate_text("km");
-                }
-
-                else if(
-                _dropDownvalue=="French"){
-                  translate_text("fr");
-                }
-
-                else if(
-                _dropDownvalue=="Greek"){
-                  translate_text("el");
-                }
-
-                else if(
-                _dropDownvalue=="Gujarati"){
-                  translate_text("gu");
-                }
-
-                else if(
-                _dropDownvalue=="Hindi"){
-                  translate_text("hi");
-                }
-
-                else if(
-                _dropDownvalue=="Iceland"){
-                  translate_text("is");
-                }
-
-                else if(
-                _dropDownvalue=="Indonesian"){
-                  translate_text("id");
-                }
-
-
-                else if(
-                _dropDownvalue=="Italian"){
-                  translate_text("it");
-                }
-
-
-                else if(
-                _dropDownvalue=="kannada"){
-                  translate_text("kn");
-                }
-
-
-                else if(
-                _dropDownvalue=="Kashmir"){
-                  translate_text("ks");
-                }
-
-                else if(
-                _dropDownvalue=="Korean"){
-                  translate_text("ks");
-                }
-
-                else if(
-                _dropDownvalue=="Kurdish"){
-                  translate_text("ku");
-                }
-
-                else if(
-                _dropDownvalue=="Latin"){
-                  translate_text("la");
-                }
-
-                else if(
-                _dropDownvalue=="Malay"){
-                  translate_text("ms");
-                }
-
-                else if(
-                _dropDownvalue=="Marathi"){
-                  translate_text("mr");
-                }
-
-
-                else if(
-                _dropDownvalue=="Nepali"){
-                  translate_text("ne");
-                }
-
-                else if(
-                _dropDownvalue=="Polish"){
-                  translate_text("pl");
-                }
-
-
-                else if(
-                _dropDownvalue=="Punjabi"){
-                  translate_text("pa");
-                }
-
-
-                else if(
-                _dropDownvalue=="Romanian"){
-                  translate_text("ro");
-                }
-
-
-                else if(
-                _dropDownvalue=="Russian"){
-                  translate_text("ru");
-                }
-
-                else if(
-                _dropDownvalue=="Somali"){
-                  translate_text("so");
-                }
-
-                else if(
-                _dropDownvalue=="Sudanese"){
-                  translate_text("su");
-                }
-
-                else if(
-                _dropDownvalue=="Swedish"){
-                  translate_text("sv");
-                }
-
-                else if(
-                _dropDownvalue=="Tamil"){
-                  translate_text("ta");
-                }
-
-                else if(
-                _dropDownvalue=="Tegulu"){
-                  translate_text("te");
-                }
-
-                else if(
-                _dropDownvalue=="Thai"){
-                  translate_text("th");
-                }
-
-                else if(
-                _dropDownvalue=="Turkish"){
-                  translate_text("tr");
-                }
-
-                else if(
-                _dropDownvalue=="Urdu"){
-                  translate_text("ur");
-                }
-
-                else if(
-                _dropDownvalue=="Uzbek"){
-                  translate_text("uz");
-                }
-
-              },
-              child: isLoading
-              ? CircularProgressIndicator(color: Colors.white,)
-              :Text("Translate")),
-
-          Padding(
-            padding:  EdgeInsets.all(screenWidth*0.02),
-            child: Container(
-              margin: EdgeInsets.only(top: screenHeight*0.01),
-              child: translated_text!=null?Text(translated_text!, style:
-              TextStyle(fontSize: screenWidth*0.05,
-                  color: Colors.black54),):Padding(
-                    padding:  EdgeInsets.all(screenWidth*0.02),
-                    child: Text(""),
-                  )
-            ),
-          ),
-          
-        ],
+          ],
+        ),
       ),
 
     );

@@ -1,6 +1,5 @@
 class VucabularyModel{
-  late String text;
-
-  VucabularyModel(this.text);
+  late List<String> textList;
+  VucabularyModel(this.textList);
 
 }

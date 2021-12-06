@@ -30,16 +30,30 @@ class _AToZVucabularyState extends State<AToZVucabulary> {
       Padding(
         padding:  EdgeInsets.all(screenWidth*0.05),
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
-
-            Container(
-              decoration: BoxDecoration(
-                border: Border.all(width: 0.1, color: Colors.lightBlue),
-                color: Color(0xffd6ebff)
+            Expanded(
+              child: ListView.builder(
+                itemCount: widget.vcbobj.textList.length,
+                  itemBuilder: (context,index){
+                    return Padding(
+                      padding:  EdgeInsets.all(screenHeight*0.01),
+                      child: Container(
+                          decoration: BoxDecoration(
+                              border: Border.all(width: 0.1, color: Colors.lightBlue),
+                              color:(index % 2== 0) ?Color(0xffd6ebff)
+                                  :Colors.white
+                          ),
+                          width: screenWidth,
+                          child: Padding(
+                            padding:  EdgeInsets.only(left: screenWidth*0.02, top: screenWidth*0.04, bottom: screenWidth*0.04),
+                            child: Text(widget.vcbobj.textList[index]),
+                          )),
+                    );
+                  }
               ),
-                height: screenHeight*0.10,
-                width: screenWidth,
-                child: Text(widget.vcbobj.text))
+            )
           ],
         ),
       ),
