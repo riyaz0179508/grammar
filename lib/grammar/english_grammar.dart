@@ -1,3 +1,4 @@
+import 'package:easy_english/grammar/aritcle.dart';
 import 'package:easy_english/grammar/preposition.dart';
 import 'package:easy_english/grammar/tense.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +31,7 @@ class _EnglishGrammarState extends State<EnglishGrammar> {
               ListTile(
                 onTap: (){
 
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>Article()));
                 },
                 selectedTileColor: Color(0xff00ffff),
                 hoverColor: Colors.yellow,
