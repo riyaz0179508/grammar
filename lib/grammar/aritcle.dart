@@ -140,6 +140,22 @@ class _ArticleState extends State<Article> {
               Divider(),
               SizedBox(height: screenHeight*0.02),
 
+              SizedBox(height: screenHeight*0.02),
+              Text("2.	শব্দের শুরুতে যদি h থাকে এবং h এর উচ্চারণ h এর মত হলে তার পূর্বে a বসে। "
+                  "কিন্তু h এর উচ্চারণ o বা অন্য কোন উচ্চারণ হলে তার পূর্বে an বসে।  "
+                , style: TextStyle(fontSize: screenWidth*0.04),
+              ),
+              SizedBox(height: screenHeight*0.02),
+              Text("Example \n", style: TextStyle(fontSize: screenWidth*0.04, fontWeight: FontWeight.bold),),
+
+              Text("* A horse\n"
+                   "* an honest man\n"
+                   "* an hour \n"
+                  , style: TextStyle(fontSize: screenWidth*0.04,height: 1.5 )
+              ),
+              Divider(),
+              SizedBox(height: screenHeight*0.02),
+
 
             ],
           ),
